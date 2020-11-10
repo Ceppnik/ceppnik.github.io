@@ -1,9 +1,8 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', () => {
     $('#profile_ripple').ripples({
         resolution: 512,
         dropRadius: 10
     })
-
 
     const bars = document.querySelectorAll('.progress__bar');
     bars.forEach(bar => {
@@ -38,25 +37,6 @@ $(document).ready(function () {
     }
 
 
-    let counterSection = document.querySelector('.counter__section');
-    const options = {
-        rootMargin: '0px 0px -200px 0px'
-    };
-    let done = 0;
-    const sectionObserver = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting && done !== 1) {
-            done = 1;
-            runCounter();
-        }
-
-    }, options)
-
-    sectionObserver.observe(counterSection);
-
-
-
-
-
     function getAge(dateString) {
         var today = new Date();
         var birthDate = new Date(dateString);
@@ -69,6 +49,29 @@ $(document).ready(function () {
     }
 
     document.getElementById("years").innerHTML = getAge("1988-03-25") + " years";
+
+
+    buttonSendMessage = document.getElementById('sendMessage');
+
+    buttonSendMessage.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        sendName = document.getElementById('sendMessageName');
+        sendMail = document.getElementById('sendMessageEmail');
+        sendMessage = document.getElementById('sendMessageNote');
+
+        let url = new URL('https://api.telegram.org/bot1466541267:AAGcoImiqLFPye5hMMLYde-a800B3kmv-vE/sendMessage');
+        url.searchParams.set('chat_id', '185326409');
+        url.searchParams.set('parse_mode', 'HTML');
+        const textMessage = `Новое сообщение с сайта CV \nName: ${sendName.value} \nEmail: ${sendMail.value} \nMessage: ${sendMessage.value}`;
+        url.searchParams.set('text', textMessage);
+
+        fetch(url);
+
+        sendName.value = '';
+        sendMail.value = '';
+        sendMessage.value = '';
+    })
 
 })
 
