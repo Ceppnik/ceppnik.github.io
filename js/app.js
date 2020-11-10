@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sendName.value = '';
         sendMail.value = '';
         sendMessage.value = '';
+        Notiflix.Notify.Success('Message has been successfully sent.');
     })
 
 })
