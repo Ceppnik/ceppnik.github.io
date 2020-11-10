@@ -50,11 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById("years").innerHTML = getAge("1988-03-25") + " years old";
 
+    Notiflix.Notify.Init({
+        position: 'right-bottom',
+    });
+
 
     buttonSendMessage = document.getElementById('sendMessage');
 
     buttonSendMessage.addEventListener('click', (event) => {
         event.preventDefault();
+
 
         sendName = document.getElementById('sendMessageName');
         sendMail = document.getElementById('sendMessageEmail');
@@ -66,12 +71,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const textMessage = `Новое сообщение с сайта CV \nName: ${sendName.value} \nEmail: ${sendMail.value} \nMessage: ${sendMessage.value}`;
         url.searchParams.set('text', textMessage);
 
-        fetch(url);
-
         sendName.value = '';
         sendMail.value = '';
         sendMessage.value = '';
-        Notiflix.Notify.Success('Message has been successfully sent.');
+
+        fetch(url)
+            .then(response => response.json())
+            .then(json => {
+                if (json.ok === true) { Notiflix.Notify.Success('Message has been successfully sent.'); }
+                else { Notiflix.Notify.Failure('The message cannot be sent.'); }
+            });
     })
 
 })
