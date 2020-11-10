@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return age;
     }
 
-    document.getElementById("years").innerHTML = getAge("1988-03-25") + " years";
+    document.getElementById("years").innerHTML = getAge("1988-03-25") + " years old";
 
 
     buttonSendMessage = document.getElementById('sendMessage');
