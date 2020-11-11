@@ -129,6 +129,7 @@ section.profile .left img {
   height: 128px;
   border-radius: 50%;
   object-fit: cover;
+  background-color: var(--primary);
 }
 
 section.profile .left .avatar__block {
@@ -323,7 +324,7 @@ section.skills .content .left p {
 section.skills .content .left p.center {
   color: var(--fade);
 
-  text-transform: uppercase
+ font-weight: bold;
 }
 
 section.skills .content .left .item {
