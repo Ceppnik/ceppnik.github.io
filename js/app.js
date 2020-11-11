@@ -55,11 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    buttonSendMessage = document.getElementById('sendMessage');
 
-    buttonSendMessage.addEventListener('click', (event) => {
+    const form = document.getElementById('form');
+    form.addEventListener('submit', (event) => {
         event.preventDefault();
-
 
         sendName = document.getElementById('sendMessageName');
         sendMail = document.getElementById('sendMessageEmail');
