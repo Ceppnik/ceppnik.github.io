@@ -82,6 +82,12 @@ nav .inner button {
   color: var(--pure);
   font-size: 14px;
   border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+nav .inner button:hover {
+  background: var(--info);
 }
 
 section.profile {
