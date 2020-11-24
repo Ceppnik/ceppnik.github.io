@@ -21,6 +21,7 @@
   --dark-blue: #28365f;
   --dark-grey: #171f33;
   --yellow: #f3c74d;
+  --discord: #7289da;
 }
 
 /* Reset */
@@ -191,15 +192,15 @@ section.profile .right ul.socials li a {
   text-align: center;
 }
 
-section.profile .right ul.socials li:nth-child(1) a {
-  background: var(--secondary);
+section.profile .right ul.socials li:nth-child(3) a {
+  background: var(--discord);
 }
 
-section.profile .right ul.socials li:nth-child(2) a {
+section.profile .right ul.socials li:nth-child(1) a {
   background: var(--telegram);
 }
 
-section.profile .right ul.socials li:nth-child(3) a {
+section.profile .right ul.socials li:nth-child(2) a {
   background: var(--github);
 }
 
