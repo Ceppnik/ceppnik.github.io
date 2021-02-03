@@ -87,6 +87,8 @@ nav .inner button {
   transition: all 0.3s ease-in-out;
 }
 
+
+
 nav .inner button:hover {
   background: var(--info);
 }
